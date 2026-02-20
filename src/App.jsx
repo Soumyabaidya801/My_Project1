@@ -1,5 +1,5 @@
-import React from 'react'
-import Section1 from './component/Section01/Section1';
+import Section1 from "./component/Section01/Section1"
+
 const App = () => {
   return (
     <div>

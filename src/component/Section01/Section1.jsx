@@ -1,22 +1,24 @@
-import React from 'react'
-import {Routes,Route} from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
+import Herotext from './Herotext';
+import SignUp from './Navbar/SignUp';
+import { Route, Routes } from 'react-router-dom';
 import Home from './Navbar/Home';
 import About from './Navbar/About';
-import Contect from './Navbar/Contact';
-import OnClick from './Navbar/OnClick';
+import Contact from './Navbar/Contact'
 const Section1 = () => {
   return (
-    <div className='min-h-screen bg-linear-to-r from-blue-950 via-purple-800 to-pink-950 p-10'> 
-    <Navbar/>
-    <Routes>
-        <Route path='/'element={ <Home/>}/>
-        <Route path='/About' element={ <About/> }/>
-        <Route path='/Contact'element={ <Contect/> }/>
-        <Route path='/Register'element={ <OnClick/>}/>
-      </Routes>    
-        </div> 
+     <div>
+        <Navbar/>
+        <Routes>
+          <Route path='/'element={ <Home/>}/>
+          <Route path='/About' element={ <About/> }/>
+          <Route path='/Contact'element={ <Contact/> }/>
+          <Route path='/SignUp'element={ <SignUp/> }/>
+        </Routes>
+        <Herotext/>
+     </div>
+        
+    
   )
 }
-
-export default Section1
+export default Section1 

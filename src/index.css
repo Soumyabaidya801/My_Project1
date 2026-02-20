@@ -1,1 +1,10 @@
 @import "tailwindcss";
+body{
+    background-image: url("https://wallpaperaccess.com/full/3239480.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
