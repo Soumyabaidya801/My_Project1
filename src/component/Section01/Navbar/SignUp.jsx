@@ -1,9 +1,58 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const SignUp = () => {
     const [isLogin, setIsLogin] = useState(true)
     const navigate = useNavigate();
+
+const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword:""
+  });
+
+  // handle input change
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // handle form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //check password match or not
+    if (!isLogin && formData.password !== formData.confirmPassword) {
+      alert("Password does not match");
+       return;
+         }
+
+    try {
+       if (isLogin) {
+       await axios.post("http://192.168.10.12:8080/api/users/login", {
+         email: formData.email,
+         password: formData.password
+         });
+         alert("Login Successful");
+       } else {
+       await axios.post("http://192.168.10.12:8080/api/users/register", {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password
+      });
+         alert("Registration Successful");
+    }
+  } catch (error) {
+  if (error.response && error.response.data) {
+    alert(error.response.data);
+  } else {
+    alert("Server error");
+  }
+}
+  };
 
   return (
     <div className='w-full h-screen place-items-center p-5'>
@@ -30,20 +79,47 @@ const SignUp = () => {
 
 
                {/*Form Section*/}
-              <form className='space-y-4'>
-               {!isLogin &&(
-               <input type="text" placeholder='Name' required className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
-               )}
+              <form onSubmit={handleSubmit}
+                    className='space-y-4'>
+
+                   {!isLogin &&(
+                   <input 
+                         type="text"
+                         name="name"
+                         value={formData.name}
+                         placeholder="Name"
+                         onChange={handleChange}
+                         required
+                         className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
+                   )}
 
 
                {/*Shared field*/}
-               <input type="email" placeholder='Email' required className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
-               <input type="password" placeholder='password' required className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
+               <input type="email"
+                      name='email'
+                      value={formData.email} 
+                      placeholder='Email' required
+                      onChange={handleChange}
+                      className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
+
+               <input type="password"
+                      name="password"
+                      value={formData.password}
+                      placeholder="Password"
+                      onChange={handleChange}
+                      required 
+                      className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
                
                
                {/*Signup Field*/}
                {!isLogin &&(
-               <input type="password" placeholder='Conform password' required className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
+               <input type="password"
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
+                      placeholder="Confirm Password"
+                      onChange={handleChange}
+                      required
+                      className='w-full p-3 border-b-2 hover:scale-110 border-gray-300 outline-none focus:bg-white focus:rounded-full placeholder-gray-600'/>
                )}
 
                 
@@ -63,7 +139,7 @@ const SignUp = () => {
 
                {/*Switch link*/}
                <p className='text-center text-white '>{isLogin ? "New User ?" :"already have an account ?"}
-                  <a href="#" onClick={(e)=>setIsLogin(!isLogin)} className='text-cyan-600 hover:underline'>{isLogin ? " Sign Up" :" Login"}</a>
+                  <a href="#" onClick={(e)=>{e.preventDefault();setIsLogin(!isLogin);}} className='text-cyan-600 hover:underline'>{isLogin ? " Sign Up" :" Login"}</a>
                </p>
               </form>
         </div>
