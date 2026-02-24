@@ -1,8 +1,13 @@
+import Herotext from '../Herotext';
+import Product from '../Product';
 
 const Home = () => {
   return (
-    <div></div>
-  )
-}
+    <>
+      <Herotext />
+      <Product />
+    </>
+  );
+};
 
-export default Home
+export default Home;
