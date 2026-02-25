@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = {"http://localhost:5173","http://192.168.10.12:5173"}) // if using Vite
+@CrossOrigin(origins = {"https://my-project1-opal-theta.vercel.app/"}) // if using Vite
 public class UserController {
 
     @Autowired

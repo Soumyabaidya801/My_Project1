@@ -32,13 +32,13 @@ const [formData, setFormData] = useState({
 
      try {
          if (isLogin) {
-         await axios.post("http://192.168.10.12:8080/api/users/login", {
+         await axios.post("https://my-project1-opal-theta.vercel.app/api/users/login", {
          email: formData.email,
          password: formData.password
          });
          alert("Login Successful");
          } else {
-         await axios.post("http://192.168.10.12:8080/api/users/register", {
+         await axios.post("https://my-project1-opal-theta.vercel.app/api/users/register", {
          name: formData.name,
          email: formData.email,
          password: formData.password
