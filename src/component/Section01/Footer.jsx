@@ -12,9 +12,7 @@ export default function Footer() {
         <div>
           <h2 className="text-xl font-semibold text-white mb-4">About Us</h2>
           <p className="text-sm leading-6">
-            We build modern, scalable and user-friendly web applications.
-            Our goal is to deliver high-quality digital solutions with
-            performance and security.
+            We are a modern travel technology platform dedicated to simplifying trip planning and booking. Our Travel & Booking Management System allows users to explore destinations, book packages, and manage reservations easily and securely.
           </p>
         </div>
 
@@ -23,16 +21,16 @@ export default function Footer() {
           <h2 className="text-xl font-semibold text-white mb-4">Products</h2>
           <ul className="space-y-2 text-sm">
             <li className="hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer">
-              SaaS Platform
+              🧳 Smart Travel Booking
             </li>
             <li className="hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer">
-              E-Commerce System
+             👤 Secure User Authentication
             </li>
             <li className="hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer">
-              Portfolio Builder
+              📅 Booking Management
             </li>
             <li className="hover:text-white hover:translate-x-2 transition-all duration-300 cursor-pointer">
-              CRM Dashboard
+              📱 Responsive Design
             </li>
           </ul>
         </div>
@@ -45,13 +43,18 @@ export default function Footer() {
         className="flex items-center gap-3 hover:text-blue-400 transition duration-300"
       >
         <img
-          src='https://img.icons8.com/?size=50&id=Ww1lcGqgduif&format=gif&color=f7f7f7'
+          src='https://images.openai.com/static-rsc-3/v1jNhrLF3-Cxdv6u4ZiyWljhw7ZW4BrfypE1Kr_Jf3sYfGoLA3WETCJWZnJ8UvFYk90DLou4mO0JWf7JZ70lgNpYbY3BNPF0h1UyNce9Bfw?purpose=fullsize&v=1'
           alt="Company Logo"
-          className="w-8 h-8 object-contain rounded-4xl text-sm"
+          className="w-5 h-5 object-contain rounded-4xl text-sm"
         />
-        support@yourwebsite.com
+        baidyasoumya8@gmail.com
       </a>
-          <p className="text-sm mb-4">Phone: +91 98765 43210</p>
+      <a
+        href="tel:+919876543210"
+        className="flex items-center gap-3 hover:text-blue-400 transition duration-300"
+      >
+      📞 <span>+91 1400-0000-0002</span>
+      </a>
 
           {/* Social Media Icons */}
           <div className="flex gap-4 mt-3">

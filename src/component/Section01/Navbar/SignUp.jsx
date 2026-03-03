@@ -32,13 +32,13 @@ const [formData, setFormData] = useState({
 
      try {
          if (isLogin) {
-         await axios.post("https://my-project1-opal-theta.vercel.app/api/users/login", {
+         await axios.post("http://192.168.29.215:8080/api/users/login", {
          email: formData.email,
          password: formData.password
          });
          alert("Login Successful");
          } else {
-         await axios.post("https://my-project1-opal-theta.vercel.app/api/users/register", {
+         await axios.post("http://192.168.29.215:8080/api/users/register", {
          name: formData.name,
          email: formData.email,
          password: formData.password
@@ -55,8 +55,8 @@ const [formData, setFormData] = useState({
   };
 
           return (
-             <div className='w-full min-h-screen grid place-items-center px-4 sm:px-6 lg:px-8'>
-             <div className='relative w-full max-w-md sm:max-w-lg bg-blue-950 p-6 sm:p-8 rounded-2xl shadow-lg'>
+             <div className='w-full min-h-screen flex items-start justify-center pt-8 px-4'>
+             <div className='relative  w-full max-w-sm sm:max-w-md bg-blue-950 p-4 sm:p-5 rounded-2xl shadow-lg'>
              
              {/*Close button*/}
                 <button onClick={() =>navigate("/")} className='absolute top-4 right-4 text-sm font-mono bg-white rounded-full px-2 hover:scale-110 transition'>
@@ -81,7 +81,7 @@ const [formData, setFormData] = useState({
 
                {/*Form Section*/}
               <form onSubmit={handleSubmit}
-                    className='space-y-4'>
+                    className='space-y-2'>
 
                    {!isLogin &&(
                    <input 
