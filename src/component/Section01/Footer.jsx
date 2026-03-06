@@ -10,7 +10,7 @@ export default function Footer() {
         
         {/* About Us */}
         <div>
-          <h2 className="text-xl font-semibold text-white mb-4">About Us</h2>
+          <h2 id="about" className="text-xl font-semibold text-white mb-4">About Us</h2>
           <p className="text-sm leading-6">
             We are a modern travel technology platform dedicated to simplifying trip planning and booking. Our Travel & Booking Management System allows users to explore destinations, book packages, and manage reservations easily and securely.
           </p>
@@ -37,7 +37,7 @@ export default function Footer() {
 
         {/* Contact Us */}
         <div>
-          <h2 className="text-xl font-semibold text-white mb-4">Contact Us</h2>
+          <h2 id="contact" className="text-xl font-semibold text-white mb-4">Contact Us</h2>
            <a
         href="mailto:support@yourwebsite.com"
         className="flex items-center gap-3 hover:text-blue-400 transition duration-300"
